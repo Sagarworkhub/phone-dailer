@@ -2,10 +2,9 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { Dialer } from './components';
 import './index.css';
 import { Layout } from './Layout.tsx';
-import { CallingScreen, IncomingCallScreen } from './pages';
+import { CallingScreen, Dialer, IncomingCallScreen } from './pages';
 
 const root = document.getElementById('root');
 

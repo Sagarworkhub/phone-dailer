@@ -1,5 +1,4 @@
 import { cva, type VariantProps } from 'class-variance-authority';
-import type React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 

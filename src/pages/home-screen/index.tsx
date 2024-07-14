@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Button, Footer, NumberPad } from '~/components';
 
-import { InputArea } from '~/pages/home-screen/input-area';
+import { InputArea } from './input-area';
 
 export const Dialer: React.FC = () => {
     const [selectedCountryCode, setSelectedCountryCode] = useState('+1');
