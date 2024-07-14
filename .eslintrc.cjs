@@ -14,6 +14,8 @@ module.exports = {
         'plugin:import-x/recommended',
         'plugin:import-x/typescript',
 
+        'plugin:tailwindcss/recommended',
+
         'prettier',
     ],
     plugins: [
@@ -56,7 +58,13 @@ module.exports = {
         },
     },
 
-    ignorePatterns: ['dist', '.eslintrc.cjs', '.prettierrc.cjs'],
+    ignorePatterns: [
+        '.eslintrc.cjs',
+        '.prettierrc.cjs',
+        'dist',
+        'postcss.config.js',
+        'tailwind.config.json',
+    ],
 
     rules: {
         // React

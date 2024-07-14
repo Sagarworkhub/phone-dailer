@@ -21,7 +21,20 @@
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+
+        "baseUrl": ".",
+        "paths": {
+            "~/*": ["src/*"],
+            "~assets/*": ["src/assets/*"],
+            "~calling-screen/*": ["src/pages/calling-screen/*"],
+            "~components/*": ["src/components/*"],
+            "~dialer-screen/*": ["src/components/dialer-screen/*"],
+            "~home-screen/*": ["src/pages/home-screen/*"],
+            "~incoming-call-screen/*": ["src/pages/incoming-call-screen/*"],
+            "~pages/*": ["src/pages/*"],
+            "~utils/*": ["src/utils/*"]
+        }
     },
     "include": ["src"]
 }
