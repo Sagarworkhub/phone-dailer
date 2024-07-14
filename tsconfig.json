@@ -1,18 +1,22 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "~assets/*": ["src/assets/*"],
-      "~/*": ["src/*"]
-    }
-  },
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "~assets/*": [
+                "src/assets/*"
+            ],
+            "~/*": [
+                "src/*"
+            ]
+        }
     },
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+    "files": [],
+    "references": [
+        {
+            "path": "./tsconfig.app.json"
+        },
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
 }
