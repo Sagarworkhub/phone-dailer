@@ -2,6 +2,8 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import { MessageScreen } from '~/pages/message-screen';
+
 import './index.css';
 import { Layout } from './Layout.tsx';
 import { CallingScreen, Dialer, IncomingCallScreen } from './pages';
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
             {
                 path: 'incoming/:phoneNumber',
                 element: <IncomingCallScreen />,
+            },
+            {
+                path: 'messages',
+                element: <MessageScreen />,
             },
         ],
     },

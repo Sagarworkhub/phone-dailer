@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 export function Layout() {
     return (
-        <div className='mx-auto w-[375px] border'>
+        <div className='mx-auto flex min-h-[812px] w-[375px] flex-col border'>
             <div>
                 <img
                     alt='status bar'
@@ -10,7 +10,7 @@ export function Layout() {
                     className='h-[44px] w-full'
                 />
             </div>
-            <main>
+            <main className='flex flex-1 flex-col'>
                 <Outlet />
             </main>
         </div>

@@ -14,7 +14,13 @@ export const Footer: React.FC = () => {
                 />
                 <span className='text-xs text-[#A5A5A5]'>Home</span>
             </Button>
-            <Button variant={'primary'} size={'homeRow'}>
+            <Button
+                variant={'primary'}
+                size={'homeRow'}
+                onClick={() => {
+                    navigate('messages');
+                }}
+            >
                 <img
                     src={'/icons/chat.svg'}
                     alt='chat'

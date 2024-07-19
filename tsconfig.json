@@ -3,15 +3,39 @@
         "jsx": "react",
         "baseUrl": ".",
         "paths": {
-            "~assets/*": ["src/assets/*"],
-            "~components/*": ["src/components/*"],
-            "~utils/*": ["src/utils/*"],
-            "~/*": ["src/*"],
-            "~pages/*": ["src/pages/*"],
-            "~calling-screen/*": ["src/pages/calling-screen/*"],
-            "~incoming-call-screen/*": ["src/pages/incoming-call-screen/*"],
-            "~dialer-screen/*": ["src/components/dialer-screen/*"],
-            "~home-screen/*": ["src/pages/home-screen/*"]
+            "~assets/*": [
+                "src/assets/*"
+            ],
+            "~components/*": [
+                "src/components/*"
+            ],
+            "~utils/*": [
+                "src/utils/*"
+            ],
+            "~/*": [
+                "src/*"
+            ],
+            "~pages/*": [
+                "src/pages/*"
+            ],
+            "~calling-screen/*": [
+                "src/pages/calling-screen/*"
+            ],
+            "~incoming-call-screen/*": [
+                "src/pages/incoming-call-screen/*"
+            ],
+            "~dialer-screen/*": [
+                "src/components/dialer-screen/*"
+            ],
+            "~home-screen/*": [
+                "src/pages/home-screen/*"
+            ],
+            "~message-screen/*": [
+                "src/pages/message-screen/*"
+            ],
+            "~keyboard/*": [
+                "src/components/keyboard/*"
+            ]
         }
     },
     "files": [],
