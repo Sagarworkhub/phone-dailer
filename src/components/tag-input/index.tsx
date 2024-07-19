@@ -6,6 +6,8 @@ import {
     useState,
 } from 'react';
 
+import { cn } from '~/utils/cn';
+
 import { TagItem } from './tag-item';
 import { type Tag } from './types';
 
@@ -15,15 +17,29 @@ export interface TagInputProps {
     setValue: React.Dispatch<React.SetStateAction<string>>;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onFocus: () => void;
+
+    maxLength?: number;
+    className?: string;
 }
 
 export const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
-    ({ type, value, setValue, onChange, onFocus }, inputRef) => {
+    (
+        {
+            type,
+            value,
+            setValue,
+            onChange,
+            onFocus,
+            maxLength = Infinity,
+            className,
+        },
+        inputRef,
+    ) => {
         const [tags, setTags] = useState<Array<Tag>>([]);
         const containerRef = useRef<HTMLDivElement>(null);
 
         const addTag = (text: string) => {
-            if (text.trim() !== '') {
+            if (text.trim() !== '' && tags.length < maxLength) {
                 setTags([
                     ...tags,
                     { id: Date.now().toString(), text: text.trim() },
@@ -61,7 +77,10 @@ export const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
         return (
             <div
                 ref={containerRef}
-                className='mt-[5px] flex min-h-[32px] w-[262px] flex-wrap items-center gap-2 p-2'
+                className={cn(
+                    'mt-[5px] flex min-h-[32px] w-[262px] flex-wrap items-center gap-2 p-2',
+                    className,
+                )}
                 onClick={() =>
                     (
                         inputRef as React.MutableRefObject<HTMLInputElement | null>
@@ -81,16 +100,20 @@ export const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
                 )}
 
                 {/* Input field for adding new tags */}
-                <input
-                    ref={inputRef}
-                    type={type}
-                    value={value}
-                    onChange={onChange}
-                    onFocus={onFocus}
-                    onKeyDown={handleKeyDown}
-                    placeholder={tags.length === 0 ? 'Type to add tags' : ''}
-                    className='min-w-[60px] grow outline-none'
-                />
+                {tags.length < maxLength ? (
+                    <input
+                        ref={inputRef}
+                        type={type}
+                        value={value}
+                        onChange={onChange}
+                        onFocus={onFocus}
+                        onKeyDown={handleKeyDown}
+                        placeholder={
+                            tags.length === 0 ? 'Type to add tags' : ''
+                        }
+                        className='min-w-[60px] grow outline-none'
+                    />
+                ) : null}
             </div>
         );
     },

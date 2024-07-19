@@ -163,7 +163,12 @@ export const MessageScreen = () => {
             {/* Send from area */}
             <div className='flex h-[52px] items-center gap-2 border-t-2 px-6'>
                 <div className='text-[#5E5E5E]'>Send from:</div>
-                <input className='w-[202px]' {...getInputProps('fromInput')} />
+                <TagInput
+                    {...getInputProps('fromInput')}
+                    setValue={setFromInput}
+                    maxLength={1}
+                    className='w-[202px]'
+                />
                 <button>
                     <ChevronRight size={24} color='#7C7C7C' />
                 </button>
