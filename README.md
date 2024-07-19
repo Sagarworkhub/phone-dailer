@@ -33,6 +33,38 @@ This Phone Dialer Application is a web-based simulation of a phone dialer and ca
     -   Accepting the call redirects to the Outgoing Call screen
     -   Rejecting the call returns the user to the Dialer screen
 
+### Messaging Screen
+
+-   Access by clicking on message button in footer
+-   **Header Area:** Displays the title "New Message" and a back button.
+-   **Sender Information:** Input field for specifying the sender's email address.
+-   **Recipient Tags:** Tag input field for adding and removing recipient tags.
+-   **Message Input:** Text area for composing the message, with support for line breaks.
+-   **Keyboard Interaction:** A virtual keyboard that supports typing, deleting, and special characters.
+
+#### How It Works
+
+1.  Header Area:
+
+    -   Displays a back button and the "New Message" title.
+
+2.  Sender Information:
+
+    -   Users can input the sender's address in the Send from: field.
+
+3.  Recipient Tags:
+
+    -   Users can add recipient tags by typing and pressing Enter.
+    -   Tags can be removed by clicking the "X" button next to each tag.
+
+4.  Message Input:
+
+    -   Users can type a message, including new lines by pressing Enter.
+
+5.  Virtual Keyboard:
+    -   Displays when an input field is focused.
+    -   Allows users to type, delete characters, insert spaces, and press Enter.
+
 ## Installation
 
 1. Clone the repository:

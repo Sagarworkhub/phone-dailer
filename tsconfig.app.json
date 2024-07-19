@@ -32,7 +32,10 @@
             "~dialer-screen/*": ["src/components/dialer-screen/*"],
             "~home-screen/*": ["src/pages/home-screen/*"],
             "~incoming-call-screen/*": ["src/pages/incoming-call-screen/*"],
+            "~keyboard/*": ["src/components/keyboard/*"],
+            "~message-screen/*": ["src/pages/message-screen/*"],
             "~pages/*": ["src/pages/*"],
+            "~tag-input/*": ["src/components/tag-input/*"],
             "~utils/*": ["src/utils/*"]
         }
     },

@@ -1,73 +1,48 @@
 import { ArrowBigUp, Delete, Dot } from 'lucide-react';
 import { useState } from 'react';
 
+import { KeyboardRow } from './KeyboardRow';
+
 interface KeyboardProps {
     onKeyPress: (key: string) => void;
     onDelete: () => void;
     onSpace: () => void;
+    onEnter: () => void;
 }
 
-const KEYBOARD_TOP_ROW = [
-    'Q',
-    'W',
-    'E',
-    'R',
-    'T',
-    'Y',
-    'U',
-    'I',
-    'O',
-    'P',
-] as const;
-const KEYBOARD_HOME_ROW = [
-    'A',
-    'S',
-    'D',
-    'F',
-    'G',
-    'H',
-    'J',
-    'K',
-    'L',
-] as const;
-const KEYBOARD_BOTTOM_ROW = ['Z', 'X', 'C', 'V', 'B', 'N', 'M'] as const;
+const KEYBOARD_ROWS = {
+    top: ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'] as const,
+    home: ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'] as const,
+    bottom: ['Z', 'X', 'C', 'V', 'B', 'N', 'M'] as const,
+};
 
 const Keyboard: React.FC<KeyboardProps> = ({
     onKeyPress,
     onDelete,
     onSpace,
+    onEnter,
 }) => {
     const [capsLock, setCapsLock] = useState(false);
+
+    const handleKeyPress = (key: string) => {
+        onKeyPress(capsLock ? key : key.toLowerCase());
+    };
 
     return (
         <div className='px-[3px] py-[7px] font-sans'>
             {/* top row */}
-            <div className='flex gap-[6px]'>
-                {KEYBOARD_TOP_ROW.map((key) => (
-                    <button
-                        key={key}
-                        className='h-[42px] w-[31.5px] rounded-md bg-white p-1 pl-[9px] text-center text-base shadow'
-                        onClick={() => {
-                            onKeyPress(capsLock ? key : key.toLowerCase());
-                        }}
-                    >
-                        {capsLock ? key : key.toLowerCase()}
-                    </button>
-                ))}
-            </div>
+            <KeyboardRow
+                keys={KEYBOARD_ROWS.top}
+                onKeyPress={handleKeyPress}
+                capsLock={capsLock}
+            />
             {/* home row */}
-            <div className='mt-3 flex gap-[6px] px-4'>
-                {KEYBOARD_HOME_ROW.map((key) => (
-                    <button
-                        key={key}
-                        className='h-[42px] w-[31.5px] rounded-md bg-white p-1 pl-[9px] text-center text-base shadow'
-                        onClick={() => {
-                            onKeyPress(capsLock ? key : key.toLowerCase());
-                        }}
-                    >
-                        {capsLock ? key : key.toLowerCase()}
-                    </button>
-                ))}
+            <div className='mt-3 px-4'>
+                <KeyboardRow
+                    keys={KEYBOARD_ROWS.home}
+                    onKeyPress={handleKeyPress}
+                    capsLock={capsLock}
+                />
             </div>
             {/* bottom row */}
             <div className='mt-3 flex gap-[14px]'>
@@ -84,17 +59,11 @@ const Keyboard: React.FC<KeyboardProps> = ({
                     />
                 </button>
                 <div className='flex gap-[6px]'>
-                    {KEYBOARD_BOTTOM_ROW.map((key) => (
-                        <button
-                            key={key}
-                            className='h-[42px] w-[31.5px] rounded-md bg-white p-1 pl-[9px] text-center text-base shadow'
-                            onClick={() => {
-                                onKeyPress(capsLock ? key : key.toLowerCase());
-                            }}
-                        >
-                            {capsLock ? key : key.toLowerCase()}
-                        </button>
-                    ))}
+                    <KeyboardRow
+                        keys={KEYBOARD_ROWS.bottom}
+                        onKeyPress={handleKeyPress}
+                        capsLock={capsLock}
+                    />
                 </div>
                 <button
                     className='flex size-[42px] items-center justify-center rounded-md bg-[#AEB3BE] shadow'
@@ -109,7 +78,7 @@ const Keyboard: React.FC<KeyboardProps> = ({
                     123
                 </button>
                 <button
-                    className='flex h-[42px] w-[32px] flex-1 items-center justify-center rounded-md bg-white shadow'
+                    className='flex h-[42px] flex-1 items-center justify-center rounded-md bg-white shadow'
                     onClick={onSpace}
                 >
                     space
@@ -117,14 +86,14 @@ const Keyboard: React.FC<KeyboardProps> = ({
                 <button
                     className='flex h-[42px] w-[32px] items-center justify-center rounded-md bg-white shadow'
                     onClick={() => {
-                        onKeyPress('.');
+                        handleKeyPress('.');
                     }}
                 >
                     <Dot size={24} />
                 </button>
                 <button
                     className='flex h-[42px] w-[63px] items-center justify-center rounded-md bg-[#007AFF] text-white shadow'
-                    onClick={onDelete}
+                    onClick={onEnter}
                 >
                     go
                 </button>
